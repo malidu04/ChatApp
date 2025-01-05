@@ -1,23 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import JoinRoom from "./Components/JoinRoom";
+import Chat from "./Components/Chat";
 
 function App() {
+  const [room, setRoom] = useState("");
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      {room === "" ? (
+        <JoinRoom setRoom={setRoom} />
+      ) : (
+        <Chat room={room} />
+      )}
     </div>
   );
 }
